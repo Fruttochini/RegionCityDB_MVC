@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "TwoDropDown";
+}
+
+<h2>TwoDropDown</h2>
+
+<p>
+    @Html.DropDownList("Region", new SelectList(ViewBag.Region as System.Collections.IEnumerable, "RegionId", "RegionName"), new { id = "ddlRegion", @class = "select-class" })
+</p>
+<select class="select-class" id="ddlCity" name="City"></select>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function GetCity(idRegion) {
+            $.getJSON("/City/LoadCityByRegion", { id: idRegion },
+                    function (cityData) {
+                        var select = $("#ddlCity");
+                        select.empty();
+                        select.append($('<option/>', {
+                            value: 0,
+                            text: "Выберите город"
+                        }));
+                        $.each(cityData, function (index, cityData) {
+
+                            select.append($('<option/>', {
+                                value: cityData.Value,
+                                text: cityData.Text
+                            }));
+                        });
+                    });
+        }
+        GetCity(1);
+        $("#ddlRegion").change(function () {
+            var idRegion = $(this).val();
+            GetCity(idRegion);
+
+        });
+
+    });
+
+</script>
+
+

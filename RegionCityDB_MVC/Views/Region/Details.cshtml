@@ -1,0 +1,58 @@
+﻿@model RegionCityDB_MVC.DataLayer.DatabaseLayer.Region
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Region</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserCreateId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserCreateId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserModifyId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserModifyId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModify)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RegionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
